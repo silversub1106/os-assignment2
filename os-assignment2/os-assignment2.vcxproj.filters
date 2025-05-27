@@ -15,18 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Users\이은섭\OneDrive\바탕 화면\한남대파일\2025.1학기\운영체제\과제2\queue_skeleton\main.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Users\이은섭\OneDrive\바탕 화면\한남대파일\2025.1학기\운영체제\과제2\queue_skeleton\queue.cpp">
+    <ClCompile Include="queue.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Users\이은섭\OneDrive\바탕 화면\한남대파일\2025.1학기\운영체제\과제2\queue_skeleton\qtype.h">
+    <ClInclude Include="qtype.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Users\이은섭\OneDrive\바탕 화면\한남대파일\2025.1학기\운영체제\과제2\queue_skeleton\queue.h">
+    <ClInclude Include="queue.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

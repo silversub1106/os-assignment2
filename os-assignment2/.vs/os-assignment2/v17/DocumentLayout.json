@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\PL\\os-assignment2\\os-assignment2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\qtype.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|C:\\PL\\os-assignment2\\os-assignment2\\qtype.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|solutionrelative:qtype.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|C:\\PL\\os-assignment2\\os-assignment2\\queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|solutionrelative:queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|C:\\PL\\os-assignment2\\os-assignment2\\queue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|solutionrelative:queue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|C:\\PL\\os-assignment2\\os-assignment2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0F77F937-D700-413A-A921-4F57C9DF7EC2}|os-assignment2.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,63 +26,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\main.cpp",
-              "RelativeDocumentMoniker": "..\\..\\..\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\main.cpp",
-              "ToolTip": "C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\main.cpp",
-              "RelativeToolTip": "..\\..\\..\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-27T17:39:29.37Z",
+              "DocumentIndex": 1,
+              "Title": "queue.h",
+              "DocumentMoniker": "C:\\PL\\os-assignment2\\os-assignment2\\queue.h",
+              "RelativeDocumentMoniker": "queue.h",
+              "ToolTip": "C:\\PL\\os-assignment2\\os-assignment2\\queue.h",
+              "RelativeToolTip": "queue.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-27T18:59:39.677Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "queue.h",
-              "DocumentMoniker": "C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.h",
-              "RelativeDocumentMoniker": "..\\..\\..\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.h",
-              "ToolTip": "C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.h",
-              "RelativeToolTip": "..\\..\\..\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-27T18:39:29.421Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "queue.cpp",
-              "DocumentMoniker": "C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.cpp",
-              "RelativeDocumentMoniker": "..\\..\\..\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.cpp",
-              "ToolTip": "C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.cpp",
-              "RelativeToolTip": "..\\..\\..\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\queue.cpp",
+              "DocumentMoniker": "C:\\PL\\os-assignment2\\os-assignment2\\queue.cpp",
+              "RelativeDocumentMoniker": "queue.cpp",
+              "ToolTip": "C:\\PL\\os-assignment2\\os-assignment2\\queue.cpp",
+              "RelativeToolTip": "queue.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-27T18:39:28.516Z",
+              "WhenOpened": "2025-05-27T18:59:39.162Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "qtype.h",
-              "DocumentMoniker": "C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\qtype.h",
-              "RelativeDocumentMoniker": "..\\..\\..\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\qtype.h",
-              "ToolTip": "C:\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\qtype.h",
-              "RelativeToolTip": "..\\..\\..\\Users\\\uC774\uC740\uC12D\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uD55C\uB0A8\uB300\uD30C\uC77C\\2025.1\uD559\uAE30\\\uC6B4\uC601\uCCB4\uC81C\\\uACFC\uC81C2\\queue_skeleton\\qtype.h",
+              "DocumentMoniker": "C:\\PL\\os-assignment2\\os-assignment2\\qtype.h",
+              "RelativeDocumentMoniker": "qtype.h",
+              "ToolTip": "C:\\PL\\os-assignment2\\os-assignment2\\qtype.h",
+              "RelativeToolTip": "qtype.h",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-27T18:39:24.767Z",
+              "WhenOpened": "2025-05-27T18:59:38.653Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\PL\\os-assignment2\\os-assignment2\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\PL\\os-assignment2\\os-assignment2\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-27T18:59:32.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }
