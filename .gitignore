@@ -1,6 +1,26 @@
+# Visual Studio 캐시 및 설정
 .vs/
-*.vcxproj.user
 *.suo
 *.user
 *.VC.db
 *.opendb
+*.cache
+*.idx
+
+# 빌드 결과물
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
+*.idb
+*.tlog
+*.lastbuildstate
+*.tmp
+*.bak
+
+# 중간 생성 디렉토리
+Debug/
+x64/
+os-assignment2/x64/
+os-assignment2/.vs/
