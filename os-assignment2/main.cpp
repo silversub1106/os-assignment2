@@ -16,16 +16,20 @@ atomic<int> sum_value = 0;
 //atomic<double> response_time_tot = 0.0;
 
 typedef enum {
-	GET,
-	SET,
-	GETRANGE
+	GET,		// GET: 큐에서 아이템을 꺼내는 연산
+	SET,        // SET: 큐에 아이템을 추가하는 연산 
+	GETRANGE    // GETRANGE: 큐에서 어떤범위만큼 복사할지  . -> range() + 
 } Operation;
 
 typedef struct {
-	Operation op;
-	Item item;
+	Operation op;		// operation -> 연산자 -> GET, SET, GETRANGE
+	Item item;			// item -> 아이템 -> key, value
 } Request;
 
+
+// 매개변수로 queue와, 요청사항 배열(get할지set할지, 아이템목록등)과 요청의 갯수
+// 를 받는다.
+// 
 void client_func(Queue* queue, Request requests[], int n_request) {
 	Reply reply = { false, 0 };
 
@@ -89,8 +93,12 @@ int main(void) {
 	cout << "sum of returned values = " << sum_value << endl;
 
 	// 진짜로 필요한 코드
+	// 진짜로 필요한 코드
 	// total_average_response_time = total_response_time / n_cleint;
 	// printf("total average response time = ....
+
+	//Test code
+
 	return 0;
 }
 
