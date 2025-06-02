@@ -1,11 +1,15 @@
 #include <iostream>
 #include "queue.h"
 
+
 // queue생성 queue는 하나만 운영 
 // Queue 생성후 Queue = init()해가지고 초기화 하지 않을까?
 // 그리고 return으로 안의 내용들을 반환해서 초기화?
 Queue* init(void) {
-	return NULL;
+	Queue* queue = (Queue*)malloc(sizeof(Queue));
+	queue->head = NULL; // head 초기화
+	queue->tail = NULL; // tail 초기화
+	return queue;
 }
 
 // queue해제 queue내부의 모든 노드 해제 후 queue 삭제
@@ -45,23 +49,32 @@ Reply enqueue(Queue* queue, Item item) {
 	Reply reply = { false, NULL };
 	Node* node = nalloc(item);
 	
-	
-	Node* current = queue->head;
-	while (1) {
-		if (node->item.key < current->item.key) {
-			Node* temp = current->next;
-			current->next = node;
-			node->next = temp;
-			free(temp);
-			reply.success = true;
-			return reply;
-		}
+	if (queue->head == NULL) { //queue가 비어있을시 node가 head이자 tail
+		queue->head = node;
+		queue->tail = node;
+		reply.success = true;
+		reply.item = item;
+		return reply;
+	}
 
-		else {
-			current = current->next;
+	if (node->item.key > queue->head->item.key) {
+		node->next = queue->head;
+		queue->head = node;
+		node->
+	}
+
+	Node * cur = queue->head;
+	while (cur!=queue->tail) {
+		if (cur->item.key < item.key) { // 현재 노드의 키가 새로 추가할 아이템의 키보다 작으면
+			cur = cur->next; // 다음 노드로 이동
 		}
+		
+		
 	}
 	
+
+
+
 	return reply;
 }
 

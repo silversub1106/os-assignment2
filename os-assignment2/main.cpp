@@ -2,7 +2,7 @@
 #include <thread>
 #include <atomic>
 #include "queue.h"
-
+#include <Windows.h>
 using namespace std;
 
 // 초간단 구동 테스트
@@ -55,15 +55,22 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 		else {
 			// noop
 		}
-
-		printf("Queue -> ");
-		Node* cur = queue->head;
-		for (int i = 0; i < sizeof(queue) / 4; i++) {
-			printf("%d ", cur->item.key);
-			cur = cur->next;
+		
+		// test
+		
+		
+		/*printf("Queue -> ");
+		if (queue != NULL) {
+			Node* cur = queue->head;
+			for (int i = 0; i < sizeof(queue) / 4; i++) {
+				printf("%d ", cur->item.key);
+				cur = cur->next;
+				system("pause");
+			}
+			printf("\n");
 		}
-		printf("\n");
-
+		
+		*/
 	}
 
 	// 진짜로 필요한 건 지연시간을 측정하는 코드
@@ -97,6 +104,10 @@ int main(void) {
 	client.join();
 
 	release(queue);
+
+	//TESt
+	
+
 
 	// 의미 없는 작업
 	cout << "sum of returned keys = " << sum_key << endl;
