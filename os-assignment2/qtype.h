@@ -6,6 +6,8 @@
 typedef unsigned int Key;  // 값이 클수록 높은 우선순위
 typedef void* Value;
 
+
+// key == value
 typedef struct {
     Key key;
     Value value;

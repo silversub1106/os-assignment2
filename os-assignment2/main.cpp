@@ -29,7 +29,7 @@ typedef struct {
 
 // 매개변수로 queue와, 요청사항 배열(get할지set할지, 아이템목록등)과 요청의 갯수
 // 를 받는다.
-// 
+
 void client_func(Queue* queue, Request requests[], int n_request) {
 	Reply reply = { false, 0 };
 
@@ -45,6 +45,7 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 
 		if (reply.success) {
 			// 단순히 리턴받은 키 값을 더함(아무 의미 없음)
+			// 그럼 뭘 해야 할까? 
 			sum_key += reply.item.key;
 			sum_value += (int)reply.item.value; // void*에서 다시 int로 변환
 
@@ -54,6 +55,15 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 		else {
 			// noop
 		}
+
+		printf("Queue -> ");
+		Node* cur = queue->head;
+		for (int i = 0; i < sizeof(queue) / 4; i++) {
+			printf("%d ", cur->item.key);
+			cur = cur->next;
+		}
+		printf("\n");
+
 	}
 
 	// 진짜로 필요한 건 지연시간을 측정하는 코드

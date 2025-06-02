@@ -20,10 +20,12 @@ void release(Queue* queue) {
 
 
 //노드 관리 세트 : nalloc, nfree, nclone
-// 노드생성후 반환하면될듯 ㅇㅇ 아님말고
+
 Node* nalloc(Item item) {
 	// Node 생성, item으로 초기화
-	return NULL;
+	Node* node = (Node*)malloc(sizeof(Node));
+	node->item = item;
+	return node;
 }
 
 // node 해제 
@@ -41,6 +43,25 @@ Node* nclone(Node* node) {
 // enqueue : Queue의 'tail'에 노드 추가
 Reply enqueue(Queue* queue, Item item) {
 	Reply reply = { false, NULL };
+	Node* node = nalloc(item);
+	
+	
+	Node* current = queue->head;
+	while (1) {
+		if (node->item.key < current->item.key) {
+			Node* temp = current->next;
+			current->next = node;
+			node->next = temp;
+			free(temp);
+			reply.success = true;
+			return reply;
+		}
+
+		else {
+			current = current->next;
+		}
+	}
+	
 	return reply;
 }
 
