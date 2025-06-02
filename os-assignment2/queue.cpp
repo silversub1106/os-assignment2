@@ -5,7 +5,7 @@
 // queue생성 queue는 하나만 운영 
 // Queue 생성후 Queue = init()해가지고 초기화 하지 않을까?
 // 그리고 return으로 안의 내용들을 반환해서 초기화?
-Queue* init(void) {
+Queue* init(void) { //구현완
 	Queue* queue = (Queue*)malloc(sizeof(Queue));
 	queue->head = NULL; // head 초기화
 	queue->tail = NULL; // tail 초기화
@@ -25,7 +25,7 @@ void release(Queue* queue) {
 
 //노드 관리 세트 : nalloc, nfree, nclone
 
-Node* nalloc(Item item) {
+Node* nalloc(Item item) { //구현완
 	// Node 생성, item으로 초기화
 	Node* node = (Node*)malloc(sizeof(Node));
 	node->item = item;
