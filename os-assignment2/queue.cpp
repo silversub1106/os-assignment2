@@ -6,20 +6,26 @@
 Queue* init(void) { 
 	Queue* queue = (Queue*)malloc(sizeof(Queue));
 	queue->head = NULL;
-	queue->tail = NULL;
+
 	return queue;
 }
 
-
+//realease문제있음
 void release(Queue* queue) {
-	Node* curr = queue->head;
+	Node* temp;
+	while (queue->head != NULL) {
+		temp = queue->head->next;
+		nfree(queue->head);
+		queue->head = temp;
+	}
 	
+	free(queue);
 
 	return;
 }
 
 
-//nalloc 구현완
+//nalloc 
 Node* nalloc(Item item) {  
 	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->item = item;
@@ -34,6 +40,8 @@ void nfree(Node* node) {
 
 
 Node* nclone(Node* node) {
+	Node* cp = (Node*)malloc(sizeof(Node));
+
 	return NULL;
 }
 
@@ -46,7 +54,8 @@ Reply enqueue(Queue* queue, Item item) {
 
 
 	// queue가 비어있을때 
-	if (queue->head == NULL) {
+	if (queue->head == NULL) {		
+
 		queue->head = newNode;
 		
 		reply.success = true; 

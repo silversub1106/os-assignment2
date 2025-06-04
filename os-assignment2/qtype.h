@@ -26,7 +26,7 @@ typedef struct node_t {
 } Node;
 
 typedef struct {
-    Node* head, *tail;
+    Node* head;
     // 필드 추가 가능
 } Queue;
 

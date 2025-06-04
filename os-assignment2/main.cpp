@@ -104,6 +104,8 @@ int main(void) {
 
 	Node* cursor = queue->head;
 	
+	
+
 	while (cursor->next != NULL) {
 		printf("%d: %d\n", cursor->item.key, cursor->item.value);
 		cursor = cursor->next;
@@ -111,10 +113,19 @@ int main(void) {
 	printf("%d: %d\n", cursor->item.key, cursor->item.value);
 
 	// 일단 한 개 뿐인데, 그래도 multi client라고 가정하기
-	thread client = thread(client_func, queue, requests, REQUEST_PER_CLINET);
+
+	release(queue);
+	if (queue->head != NULL) {
+		printf("release안됨\n");
+	}
+	else {
+		printf("release잘됨\n");
+	}
+	/*thread client = thread(client_func, queue, requests, REQUEST_PER_CLINET);
 	
+
 	client.join();
-	
+	*/
 	
 
 
