@@ -87,17 +87,33 @@ int main(void) {
 	if (queue == NULL) return 0;
 
 	Reply a;
-	Item newItem = { 0, (void*)123 };
+	Item newItem = { 3, (void*)123 };
 	a = enqueue(queue, newItem);
+	printf("%d ", a.item.key);
+	Item newItem2 = { 1, (void*)321 };
+	a = enqueue(queue, newItem2);
+	printf("%d ", a.item.key);
+	Item newItem3 = { 2, (void*)456 };
+	a = enqueue(queue, newItem3);
+	printf("%d ", a.item.key);
+	Item newItem4 = { 4, (void*)179 };
+	a = enqueue(queue, newItem4);
+	printf("%d ", a.item.key);
+	a = dequeue(queue); 
+	//printf("%d \n", a.item.value);
 
-	printf("%d: %d\n", queue->head->item.key, queue->head->item.value);
-	printf("%d: %d\n", queue->tail->item.key, queue->tail->item.value);
-	printf("%d: %d\n", queue->tail->next->item.key, queue->tail->next->item.value);
-	printf("%d: %d\n", queue->head->next->item.key, queue->head->next->item.value);
+	Node* cursor = queue->head;
+	
+	while (cursor->next != NULL) {
+		printf("%d: %d\n", cursor->item.key, cursor->item.value);
+		cursor = cursor->next;
+	}
+	printf("%d: %d\n", cursor->item.key, cursor->item.value);
 
 	// 일단 한 개 뿐인데, 그래도 multi client라고 가정하기
-	//thread client = thread(client_func, queue, requests, REQUEST_PER_CLINET);
-	//client.join();
+	thread client = thread(client_func, queue, requests, REQUEST_PER_CLINET);
+	
+	client.join();
 	
 	
 
