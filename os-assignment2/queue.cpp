@@ -10,7 +10,7 @@ Queue* init(void) {
 	return queue;
 }
 
-//realease문제있음
+//realease -> 현재구현중
 void release(Queue* queue) {
 	Node* temp;
 	while (queue->head != NULL) {
@@ -111,7 +111,7 @@ Reply enqueue(Queue* queue, Item item) {
 	}
 }
 
-// 
+// 완성 X
 Reply dequeue(Queue* queue) {
 	Reply reply = { false, NULL };
 	Node* temp = queue->head->next;
