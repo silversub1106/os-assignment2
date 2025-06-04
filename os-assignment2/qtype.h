@@ -21,7 +21,7 @@ typedef struct {
 
 typedef struct node_t {
     Item item;
-    struct node_t* next;
+    struct node_t* next, *prev;
     // 필드 추가 가능
 } Node;
 

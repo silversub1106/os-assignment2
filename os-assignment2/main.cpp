@@ -38,6 +38,7 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 	for (int i = 0; i < n_request; i++) {
 		if (requests[i].op == GET) {
 			reply = dequeue(queue);
+
 		}
 		else { // SET
 			reply = enqueue(queue, requests[i].item);
@@ -56,21 +57,7 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 			// noop
 		}
 		
-		// test
 		
-		
-		/*printf("Queue -> ");
-		if (queue != NULL) {
-			Node* cur = queue->head;
-			for (int i = 0; i < sizeof(queue) / 4; i++) {
-				printf("%d ", cur->item.key);
-				cur = cur->next;
-				system("pause");
-			}
-			printf("\n");
-		}
-		
-		*/
 	}
 
 	// 진짜로 필요한 건 지연시간을 측정하는 코드
@@ -97,17 +84,25 @@ int main(void) {
 	}
 
 	Queue* queue = init();
-	//if (queue == NULL) return 0;
+	if (queue == NULL) return 0;
+
+	Reply a;
+	Item newItem = { 0, (void*)123 };
+	a = enqueue(queue, newItem);
+
+	printf("%d: %d\n", queue->head->item.key, queue->head->item.value);
+	printf("%d: %d\n", queue->tail->item.key, queue->tail->item.value);
+	printf("%d: %d\n", queue->tail->next->item.key, queue->tail->next->item.value);
+	printf("%d: %d\n", queue->head->next->item.key, queue->head->next->item.value);
 
 	// 일단 한 개 뿐인데, 그래도 multi client라고 가정하기
-	thread client = thread(client_func, queue, requests, REQUEST_PER_CLINET);
-	client.join();
-
-	release(queue);
-
-	//TESt
+	//thread client = thread(client_func, queue, requests, REQUEST_PER_CLINET);
+	//client.join();
+	
 	
 
+
+	
 
 	// 의미 없는 작업
 	cout << "sum of returned keys = " << sum_key << endl;
