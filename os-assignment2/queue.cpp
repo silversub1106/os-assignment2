@@ -53,18 +53,29 @@ Reply enqueue(Queue* queue, Item item) {
 	Node* newNode = nalloc(item);
 
 
-	// queue가 비어있을때 
-	if (queue->head == NULL) {		
-
+	// queue가 비어있을때  (잘됨)
+	if (queue->head == NULL) {		 
 		queue->head = newNode;
-		
+	
 		reply.success = true; 
 		reply.item = item;     //이거 깊복해야될듯 
 		return reply;
 	}
 
+	// newNode key값이 head와 동일할때 -> 기존 노드삭제후 그자리에 새로추가(잘됨)
 
-	// newNode가 head보다 key값이 높을시 (유일하게 새로운노드를 앞에삽입)
+	if (newNode->item.key == queue->head->item.key) {
+		newNode->next = queue->head->next;
+		free(queue->head);
+		queue->head = newNode;
+
+		reply.success = true;
+		reply.item = item;
+		return reply;
+	}
+
+
+	// newNode가 head보다 key값이 높을시 (유일하게 새로운노드를 앞에삽입) (잘됨) 
 	if (newNode->item.key > queue->head->item.key) { 
 		newNode->next = queue->head;
 		queue->head = newNode;
@@ -90,6 +101,17 @@ Reply enqueue(Queue* queue, Item item) {
 				return reply;
 			}
 
+			else if (curr->next->item.key == item.key) {
+				newNode->next = curr->next->next;
+				nfree(curr->next);
+				curr->next = newNode;
+				
+				
+				reply.success = true;
+				reply.item = item;     //이거 깊복해야될듯 
+				return reply;
+			}
+
 			// 
 			else {
 				// 기준노드의 다음노드도 새로운노드보다 큼(그럼 기준노드를 다음노드로)
@@ -109,6 +131,10 @@ Reply enqueue(Queue* queue, Item item) {
 			}
 		}
 	}
+
+	
+
+
 }
 
 // 완성 X

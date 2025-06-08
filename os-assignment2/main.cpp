@@ -89,23 +89,28 @@ int main(void) {
 	Reply a;
 	Item newItem = { 3, (void*)123 };
 	a = enqueue(queue, newItem);
-	printf("%d ", a.item.key);
-	Item newItem2 = { 1, (void*)321 };
+	cout << a.item.key << endl;
+	
+	Item newItem2 = { 3, (void*)321 };
 	a = enqueue(queue, newItem2);
-	printf("%d ", a.item.key);
+	cout << a.item.key << endl;
+	//printf("%d : %d \n", queue->head->item.key, (int)queue->head->item.value);
 	Item newItem3 = { 2, (void*)456 };
 	a = enqueue(queue, newItem3);
-	printf("%d ", a.item.key);
+	cout << a.item.key << endl;
 	Item newItem4 = { 4, (void*)179 };
 	a = enqueue(queue, newItem4);
-	printf("%d ", a.item.key);
-	a = dequeue(queue); 
+	cout << a.item.key << endl;
+	Item newItem5 = { 4, (void*)999 };
+	a = enqueue(queue, newItem5);
+	cout << a.item.key << endl;
+	//a = dequeue(queue); 
 	//printf("%d \n", a.item.value);
 
+	
 	Node* cursor = queue->head;
 	
 	
-
 	while (cursor->next != NULL) {
 		printf("%d: %d\n", cursor->item.key, cursor->item.value);
 		cursor = cursor->next;
@@ -114,13 +119,7 @@ int main(void) {
 
 	// 일단 한 개 뿐인데, 그래도 multi client라고 가정하기
 
-	release(queue);
-	if (queue->head != NULL) {
-		printf("release안됨\n");
-	}
-	else {
-		printf("release잘됨\n");
-	}
+	
 	/*thread client = thread(client_func, queue, requests, REQUEST_PER_CLINET);
 	
 
