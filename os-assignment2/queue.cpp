@@ -92,7 +92,7 @@ Reply enqueue(Queue* queue, Item item) {
 		// 새로운노드가 기준 노드보다 작은 경우(뒤에삽입)
 		if (curr->item.key >= item.key) {
 			// 현재노드의 next가 있을경우 그리고 기준노드의 다음노드가 새로운노드보다 작을경우
-			if (curr->next != NULL && curr->next->item.key <= newNode->item.key) {
+			if (curr->next != NULL && curr->next->item.key < newNode->item.key) {
 				newNode->next = curr->next;
 				curr->next = newNode;
 
@@ -101,7 +101,7 @@ Reply enqueue(Queue* queue, Item item) {
 				return reply;
 			}
 
-			else if (curr->next->item.key == item.key) {
+			else if (curr->next != NULL &&  curr->next->item.key == item.key) {
 				newNode->next = curr->next->next;
 				nfree(curr->next);
 				curr->next = newNode;

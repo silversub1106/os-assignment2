@@ -89,24 +89,27 @@ int main(void) {
 	Reply a;
 	Item newItem = { 3, (void*)123 };
 	a = enqueue(queue, newItem);
-	cout << a.item.key << endl;
-	
+	cout << a.item.key <<" : "<< (int)a.item.value << endl;
 	Item newItem2 = { 3, (void*)321 };
 	a = enqueue(queue, newItem2);
-	cout << a.item.key << endl;
-	//printf("%d : %d \n", queue->head->item.key, (int)queue->head->item.value);
+	cout << a.item.key << " : " << (int)a.item.value << endl;
 	Item newItem3 = { 2, (void*)456 };
 	a = enqueue(queue, newItem3);
-	cout << a.item.key << endl;
+	cout << a.item.key << " : " << (int)a.item.value << endl;
 	Item newItem4 = { 4, (void*)179 };
 	a = enqueue(queue, newItem4);
-	cout << a.item.key << endl;
-	Item newItem5 = { 4, (void*)999 };
+	cout << a.item.key << " : " << (int)a.item.value << endl;
+	Item newItem5 = { 2, (void*)999 };
 	a = enqueue(queue, newItem5);
-	cout << a.item.key << endl;
+	cout << a.item.key << " : " << (int)a.item.value << endl;
+	Item newItem6 = { 1, (void*)852 };
+	a = enqueue(queue, newItem6);
+	cout << a.item.key << " : " << (int)a.item.value << endl;
 	//a = dequeue(queue); 
 	//printf("%d \n", a.item.value);
 
+
+	cout << endl;
 	
 	Node* cursor = queue->head;
 	
