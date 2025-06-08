@@ -9,7 +9,7 @@ using namespace std;
 // 주의: 아래 정의(Operation, Request)는 예시일 뿐
 // 큐의 Item은 void*이므로 얼마든지 달라질 수 있음
 
-#define REQUEST_PER_CLINET	10000
+#define REQUEST_PER_CLINET	10
 
 atomic<int> sum_key = 0;
 atomic<int> sum_value = 0;
@@ -38,20 +38,24 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 	for (int i = 0; i < n_request; i++) {
 		if (requests[i].op == GET) {
 			reply = dequeue(queue);
-
+			cout << "key: " << reply.item.key << ", value: " << (int)reply.item.value << endl;
 		}
 		else { // SET
 			reply = enqueue(queue, requests[i].item);
+			sum_key += reply.item.key;
+			sum_value += (int)reply.item.value;
+			cout << "key: " << reply.item.key << ", value: " << (int)reply.item.value << endl;
 		}
 
 		if (reply.success) {
 			// 단순히 리턴받은 키 값을 더함(아무 의미 없음)
 			// 그럼 뭘 해야 할까? 
-			sum_key += reply.item.key;
-			sum_value += (int)reply.item.value; // void*에서 다시 int로 변환
+			 // void*에서 다시 int로 변환
 
 			// 리턴받은 key, value 값 검증
 			// ...생략...
+
+			
 		}
 		else {
 			// noop
@@ -59,6 +63,9 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 		
 		
 	}
+
+
+
 
 	// 진짜로 필요한 건 지연시간을 측정하는 코드
 	//
@@ -77,7 +84,7 @@ int main(void) {
 	for (int i = 0; i < REQUEST_PER_CLINET / 2; i++) {
 		requests[i].op = SET;
 		requests[i].item.key = i;
-		requests[i].item.value = (void*)(rand() % 1000000);
+		requests[i].item.value = (void*)(rand() % 10);
 	}
 	for (int i = REQUEST_PER_CLINET / 2; i < REQUEST_PER_CLINET; i++) {
 		requests[i].op = GET;
@@ -90,44 +97,63 @@ int main(void) {
 	Item newItem = { 3, (void*)123 };
 	a = enqueue(queue, newItem);
 	cout << a.item.key <<" : "<< (int)a.item.value << endl;
-	Item newItem2 = { 3, (void*)321 };
+	Item newItem2 = { 3, (void*)3 };
 	a = enqueue(queue, newItem2);
 	cout << a.item.key << " : " << (int)a.item.value << endl;
-	Item newItem3 = { 2, (void*)456 };
+	Item newItem3 = { 2, (void*)12 };
 	a = enqueue(queue, newItem3);
 	cout << a.item.key << " : " << (int)a.item.value << endl;
-	Item newItem4 = { 4, (void*)179 };
+	Item newItem4 = { 4, (void*)4 };
 	a = enqueue(queue, newItem4);
 	cout << a.item.key << " : " << (int)a.item.value << endl;
-	Item newItem5 = { 2, (void*)999 };
+	Item newItem5 = { 2, (void*)2 };
 	a = enqueue(queue, newItem5);
 	cout << a.item.key << " : " << (int)a.item.value << endl;
-	Item newItem6 = { 1, (void*)852 };
+	Item newItem6 = { 1, (void*)1 };
 	a = enqueue(queue, newItem6);
 	cout << a.item.key << " : " << (int)a.item.value << endl;
-	//a = dequeue(queue); 
-	//printf("%d \n", a.item.value);
+	Item newItem7 = { 5, (void*)5 };
+	a = enqueue(queue, newItem7);
+	cout << a.item.key << " : " << (int)a.item.value << endl;
 
+	/*a = dequeue(queue); 
+	printf("%d \n", a.item.value);*/
 
-	cout << endl;
+	cout <<  endl;
+	cout << "Queue: " << endl;
 	
 	Node* cursor = queue->head;
 	
 	
 	while (cursor->next != NULL) {
-		printf("%d: %d\n", cursor->item.key, cursor->item.value);
+		cout << cursor->item.key << " : " << (int)cursor->item.value << endl;
 		cursor = cursor->next;
 	}
-	printf("%d: %d\n", cursor->item.key, cursor->item.value);
+	cout << cursor->item.key << " : " << (int)cursor->item.value << endl;
 
+	
+	Key s = 1, e = 3;
+
+	cout << endl;
+	cout << "cpQueue: " << endl;
+	Queue* cpQueue = range(queue, s, e);
+
+	Node* cursor1 = cpQueue->head;
+
+
+	while (cursor1->next != NULL) {
+		cout << cursor1->item.key << " : " << (int)cursor1->item.value << endl;
+		cursor1 = cursor1->next;
+	}
+	cout << cursor1->item.key << " : " << (int)cursor1->item.value << endl;
+	
 	// 일단 한 개 뿐인데, 그래도 multi client라고 가정하기
-
-	
 	/*thread client = thread(client_func, queue, requests, REQUEST_PER_CLINET);
+	client.join();*/
 	
-
-	client.join();
-	*/
+	
+	
+	
 	
 
 

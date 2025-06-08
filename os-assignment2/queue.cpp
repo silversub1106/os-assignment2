@@ -150,6 +150,25 @@ Reply dequeue(Queue* queue) {
 	return reply;
 }
 
+
+
 Queue* range(Queue* queue, Key start, Key end) {
-	return NULL;
+	Queue* cpQueue = init();
+	
+	int cnt = 0;
+	Node* curr = queue->head; //index 0
+	while (cnt < start) {
+		curr = curr->next;
+		cnt++;
+	}
+
+	while (cnt <= end) {
+		enqueue(cpQueue, curr->item);
+		curr = curr->next;
+		cnt++;
+	}
+
+
+
+	return cpQueue;
 }
