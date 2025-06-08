@@ -90,9 +90,11 @@ int main(void) {
 		requests[i].op = GET;
 	}
 
+	// Queue생성
 	Queue* queue = init();
 	if (queue == NULL) return 0;
 
+	// enqueue, dequeue Test
 	Reply a;
 	Item newItem = { 3, (void*)123 };
 	a = enqueue(queue, newItem);
@@ -120,11 +122,10 @@ int main(void) {
 	printf("%d \n", a.item.value);*/
 
 	cout <<  endl;
-	cout << "Queue: " << endl;
-	
+	//Original Queue 출력
 	Node* cursor = queue->head;
 	
-	
+	cout << "Origin Queue 출력: " << endl;
 	while (cursor->next != NULL) {
 		cout << cursor->item.key << " : " << (int)cursor->item.value << endl;
 		cursor = cursor->next;
@@ -132,32 +133,57 @@ int main(void) {
 	cout << cursor->item.key << " : " << (int)cursor->item.value << endl;
 
 	
+	// Queue Copy
 	Key s = 1, e = 3;
 
 	cout << endl;
-	cout << "cpQueue: " << endl;
+	cout << "cpQueue 출력: " << endl;
 	Queue* cpQueue = range(queue, s, e);
 
-	Node* cursor1 = cpQueue->head;
+	Node* cpCursor = cpQueue->head;
+
+	// Copied Queue 출력
 
 
-	while (cursor1->next != NULL) {
-		cout << cursor1->item.key << " : " << (int)cursor1->item.value << endl;
-		cursor1 = cursor1->next;
+
+	while (cpCursor->next != NULL) {
+		cout << cpCursor->item.key << " : " << (int)cpCursor->item.value << endl;
+		cpCursor = cpCursor->next;
 	}
-	cout << cursor1->item.key << " : " << (int)cursor1->item.value << endl;
+	cout << cpCursor->item.key << " : " << (int)cpCursor->item.value << endl;
 	
 	// 일단 한 개 뿐인데, 그래도 multi client라고 가정하기
 	/*thread client = thread(client_func, queue, requests, REQUEST_PER_CLINET);
 	client.join();*/
 	
 	
+	//Copied Queue 변경 (깊은복사 테스트)
 	
-	
+	cpQueue->head->item.key = 1111;
+	cpQueue->head->item.value = (void*)9999;
 	
 
+	////Original Queue 출력
+	Node* cursor3 = queue->head;
+	cout << endl;
+	cout << "Origin Queue 출력: " << endl;
+	while (cursor3->next != NULL) {
+		cout << cursor3->item.key << " : " << (int)cursor3->item.value << endl;
+		cursor3 = cursor3->next;
+	}
+	cout << cursor3->item.key << " : " << (int)cursor3->item.value << endl;
 
-	
+	// 변경된Copied Queue 출력
+
+	Node* cpCursor1 = cpQueue->head;
+	cout << endl;
+	cout << "변경된 cpQueue 출력: " << endl;
+	while (cpCursor1->next != NULL) {
+		cout << cpCursor1->item.key << " : " << (int)cpCursor1->item.value << endl;
+		cpCursor1 = cpCursor1->next;
+	}
+	cout << cpCursor1->item.key << " : " << (int)cpCursor1->item.value << endl;
+
 
 	// 의미 없는 작업
 	cout << "sum of returned keys = " << sum_key << endl;

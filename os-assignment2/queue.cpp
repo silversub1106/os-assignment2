@@ -41,8 +41,9 @@ void nfree(Node* node) {
 
 Node* nclone(Node* node) {
 	Node* cp = (Node*)malloc(sizeof(Node));
-
-	return NULL;
+	cp->item.key = node->item.key;
+	cp->item.value = node->item.value;
+	return cp;
 }
 
 
@@ -156,15 +157,17 @@ Queue* range(Queue* queue, Key start, Key end) {
 	Queue* cpQueue = init();
 	
 	int cnt = 0;
-	Node* curr = queue->head; //index 0
+	Node* cursor = queue->head; //index 0
+	Node* cpNode = nclone(cursor);
 	while (cnt < start) {
-		curr = curr->next;
+		cursor = cursor->next;
 		cnt++;
 	}
 
 	while (cnt <= end) {
-		enqueue(cpQueue, curr->item);
-		curr = curr->next;
+		cpNode = nclone(cursor);
+		enqueue(cpQueue, cpNode->item);
+		cursor = cursor->next;
 		cnt++;
 	}
 
