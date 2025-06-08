@@ -4,13 +4,14 @@
 #include "queue.h"
 #include <Windows.h>
 #include <vector>
+#include <chrono> 
 using namespace std;
 
 // 초간단 구동 테스트
 // 주의: 아래 정의(Operation, Request)는 예시일 뿐
 // 큐의 Item은 void*이므로 얼마든지 달라질 수 있음
 
-#define REQUEST_PER_CLINET	100
+#define REQUEST_PER_CLINET	1000000
 
 atomic<int> sum_key = 0;
 atomic<int> sum_value = 0;
@@ -45,13 +46,13 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 			sum_key += reply.item.key;
 			sum_value += (int)reply.item.value;
 			getcnt++;
-			cout << "GET : key: " << reply.item.key << ", value: " << (int)reply.item.value << endl;
+			//cout << "GET : key: " << reply.item.key << ", value: " << (int)reply.item.value << endl;
 		}
 		else { // SET
 			reply = enqueue(queue, requests[i].item);
 			
 			setcnt++;
-			cout << "SET : key: " << reply.item.key << ", value: " << (int)reply.item.value << endl;
+			//cout << "SET : key: " << reply.item.key << ", value: " << (int)reply.item.value << endl;
 		}
 
 		if (reply.success) {
@@ -70,7 +71,7 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 		
 		
 	}
-	cout << "[Thread] 종료: " << std::this_thread::get_id() << endl;
+	std::cout << "[Thread] 종료: " << std::this_thread::get_id() << endl;
 
 
 
@@ -84,6 +85,7 @@ void client_func(Queue* queue, Request requests[], int n_request) {
 }
 
 int main(void) {
+	auto start = std::chrono::high_resolution_clock::now();
 	srand((unsigned int)time(NULL));
 	int sumk = 0, sumv = 0;
 
@@ -98,41 +100,41 @@ int main(void) {
 		requests[i].item.value = (void*)(rand() % 10);
 		sumk += requests[i].item.key;
 		sumv += (int)requests[i].item.value;
-		printf("%d\n", i);
+		//printf("%d\n", i);
 	}
 	for (int i = REQUEST_PER_CLINET / 2; i < REQUEST_PER_CLINET; i++) {
 		requests[i].op = GET;
-		printf("%d\n", i);
+		//printf("%d\n", i);
 	}
 	//requests2
 	for (int i = 0; i < REQUEST_PER_CLINET / 2; i++) {
 		requests2[i].op = SET;
-		requests2[i].item.key = i+50;
+		requests2[i].item.key = i+ REQUEST_PER_CLINET/2;
 		requests2[i].item.value = (void*)(rand() % 10);
 		sumk += requests2[i].item.key;
 		sumv += (int)requests2[i].item.value;
-		printf("%d\n", i);
+		//printf("%d\n", i);
 	}
 
 	for (int i = REQUEST_PER_CLINET / 2; i < REQUEST_PER_CLINET; i++) {
 		requests2[i].op = GET;
-		printf("%d\n", i);
+		//printf("%d\n", i);
 	}
 
 	/*requests[1].item.key = 0;
 	requests2[1].item.key = 5;*/
 	//Request출력
 
-	cout << endl;
-	cout << "Request1: " << endl;
-	for (int i = 0; i < REQUEST_PER_CLINET; i++) {
+	//cout << endl;
+	//cout << "Request1: " << endl;
+	/*for (int i = 0; i < REQUEST_PER_CLINET; i++) {
 		cout << i << ":" << "requests1["<< i <<"].op = " << requests[i].op <<", requests1[" << i << "].item.key = " << requests[i].item.key << ", requests1[" << i << "].item.value : " << (int)requests[i].item.value << endl;
 	}
 	cout << endl;
 	cout << "Request2: " << endl;
 	for (int i = 0; i < REQUEST_PER_CLINET; i++) {
 		cout << i << ":" << "requests2[" << i << "].op = " << requests2[i].op << ", requests2[" << i << "].item.key = " << requests2[i].item.key << ", requests2[" << i << "].item.value : " << (int)requests2[i].item.value << endl;
-	}
+	}*/
 	// Queue생성
 	Queue* queue = init();
 	if (queue == NULL) return 0;
@@ -255,16 +257,17 @@ int main(void) {
 	
 	
 	// 의미 없는 작업
-	cout << "sum of returned keys = " << sum_key << endl;
-	cout << "sum of returned values = " << sum_value << endl;
-
+	std::cout << "sum of returned keys = " << sum_key << endl;
+	std::cout << "sum of returned values = " << sum_value << endl;
+	auto end = std::chrono::high_resolution_clock::now();    // 끝
+	std::chrono::duration<double> elapsed = end - start;
 	// 진짜로 필요한 코드
 	// 진짜로 필요한 코드
 	// total_average_response_time = total_response_time / n_cleint;
 	// printf("total average response time = ....
 
 	//Test code
-
+	std::cout << "총 실행 시간: " << elapsed.count() << " 초" << std::endl;
 	return 0;
 }
 
