@@ -1,7 +1,8 @@
 #include <iostream>
 #include "queue.h"
+#include <mutex>
 
-
+std::mutex mtx;
 
 Queue* init(void) { 
 	Queue* queue = (Queue*)malloc(sizeof(Queue));
@@ -40,6 +41,12 @@ void nfree(Node* node) {
 
 
 Node* nclone(Node* node) {
+	std::lock_guard<std::mutex> lock(mtx);
+	if (node == NULL) {
+		std::cerr << "nclone(): NULL node passed!" << std::endl;
+		return NULL;
+	}
+
 	Node* cp = (Node*)malloc(sizeof(Node));
 	cp->item.key = node->item.key;
 	cp->item.value = node->item.value;
@@ -49,17 +56,18 @@ Node* nclone(Node* node) {
 
 // :★size추가 필요★ 어디에 추가할지 표시했음
 Reply enqueue(Queue* queue, Item item) { 
+	std::lock_guard<std::mutex> lock(mtx);
 	Reply reply = { false, NULL };
 	
 	Node* newNode = nalloc(item);
-
+	
 
 	// queue가 비어있을때  (잘됨)
 	if (queue->head == NULL) {		 
 		queue->head = newNode;
 	
 		reply.success = true; 
-		reply.item = item;     //이거 깊복해야될듯 
+		reply.item = item;   
 		return reply;
 	}
 
@@ -82,7 +90,7 @@ Reply enqueue(Queue* queue, Item item) {
 		queue->head = newNode;
 		
 		reply.success = true;
-		reply.item = item;     //이거 깊복해야될듯 
+		reply.item = item;    
 		return reply;
 	}
 
@@ -98,7 +106,7 @@ Reply enqueue(Queue* queue, Item item) {
 				curr->next = newNode;
 
 				reply.success = true;
-				reply.item = item;     //이거 깊복해야될듯 
+				reply.item = item;
 				return reply;
 			}
 
@@ -109,7 +117,7 @@ Reply enqueue(Queue* queue, Item item) {
 				
 				
 				reply.success = true;
-				reply.item = item;     //이거 깊복해야될듯 
+				reply.item = item;  
 				return reply;
 			}
 
@@ -120,7 +128,7 @@ Reply enqueue(Queue* queue, Item item) {
 					curr->next = newNode;
 
 					reply.success = true;
-					reply.item = item;     //이거 깊복해야될듯 
+					reply.item = item;   
 					return reply;
 				}
 		
@@ -132,15 +140,14 @@ Reply enqueue(Queue* queue, Item item) {
 			}
 		}
 	}
-
-	
-
-
 }
 
 // 완성 X
 Reply dequeue(Queue* queue) {
+	std::lock_guard<std::mutex> lock(mtx);
+	
 	Reply reply = { false, NULL };
+	if (queue->head == NULL) return reply;
 	Node* temp = queue->head->next;
 
 	reply.success = true;
@@ -154,8 +161,11 @@ Reply dequeue(Queue* queue) {
 
 
 Queue* range(Queue* queue, Key start, Key end) {
+	std::lock_guard<std::mutex> lock(mtx);
+
 	Queue* cpQueue = init();
-	
+	if (queue->head == NULL) return cpQueue;
+
 	int cnt = 0;
 	Node* cursor = queue->head; //index 0
 	Node* cpNode = nclone(cursor);
@@ -165,13 +175,14 @@ Queue* range(Queue* queue, Key start, Key end) {
 	}
 
 	while (cnt <= end) {
+		if (cursor == NULL) break;
 		cpNode = nclone(cursor);
 		enqueue(cpQueue, cpNode->item);
 		cursor = cursor->next;
 		cnt++;
 	}
+	
 
-
-
+	
 	return cpQueue;
 }
