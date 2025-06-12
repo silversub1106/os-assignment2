@@ -1,9 +1,9 @@
 #ifndef _QTYPE_H  // header guard
 #define _QTYPE_H
 
-// ==========ÀÌ ÆÄÀÏÀº ¼öÁ¤ °¡´É==========
+// ==========ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½==========
 
-typedef unsigned int Key;  // °ªÀÌ Å¬¼ö·Ï ³ôÀº ¿ì¼±¼øÀ§
+typedef unsigned int Key;  // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½
 typedef void* Value;
 
 
@@ -11,25 +11,26 @@ typedef void* Value;
 typedef struct {
     Key key;
     Value value;
+    int value_size;
 } Item;
 
 typedef struct {
-    bool success;   // true: ¼º°ø, false: ½ÇÆÐ
+    bool success;   // true: ï¿½ï¿½ï¿½ï¿½, false: ï¿½ï¿½ï¿½ï¿½
     Item item;
-    // ÇÊµå Ãß°¡ °¡´É
+    // ï¿½Êµï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 } Reply;
 
 typedef struct node_t {
     Item item;
     struct node_t* next;
-    // ÇÊµå Ãß°¡ °¡´É
+    // ï¿½Êµï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 } Node;
 
 typedef struct {
     Node* head;
-    // ÇÊµå Ãß°¡ °¡´É
+    // ï¿½Êµï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 } Queue;
 
-// ÀÌÈÄ ÀÚÀ¯·Ó°Ô Ãß°¡/¼öÁ¤: »õ·Î¿î ÀÚ·áÇü Á¤ÀÇ µî
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½ß°ï¿½/ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
 #endif
